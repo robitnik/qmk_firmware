@@ -30,6 +30,8 @@
 #include "keymap_turkish_q.h"
 #include "keymap_slovak.h"
 
+#include "sendstring_uk.h"
+
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
 #define KC_MAC_COPY LGUI(KC_C)
@@ -155,47 +157,47 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ST_MACRO_0:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_H));
+      SEND_STRING("git push -f\n");
     }
     break;
     case ST_MACRO_1:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_G));
+      SEND_STRING("git push\n");
     }
     break;
     case ST_MACRO_2:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_B));
+      SEND_STRING("git diff --name-only --diff-filter=AMR origin/master -- '***.py' | xargs black\n");
     }
     break;
     case ST_MACRO_3:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_G));
+      SEND_STRING("git checkout master\ngit pull\ngit checkout -\ngit rebase master\n");
     }
     break;
     case ST_MACRO_4:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_H));
+      SEND_STRING("git status\n");
     }
     break;
     case ST_MACRO_5:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_C));
+      SEND_STRING("git commit -am ''" SS_TAP(X_LEFT));
     }
     break;
     case ST_MACRO_6:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_A));
+      SEND_STRING("git commit --amend -a --no-edit\n");
     }
     break;
     case ST_MACRO_7:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_D));
+      SEND_STRING("git checkout -b theed/");
     }
     break;
     case ST_MACRO_8:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_G));
+      SEND_STRING("git rebase -i master\n");
     }
     break;
 
