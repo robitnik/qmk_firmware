@@ -30,8 +30,6 @@
 #include "keymap_turkish_q.h"
 #include "keymap_slovak.h"
 
-#include "sendstring_uk.h"
-
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
 #define KC_MAC_COPY LGUI(KC_C)
@@ -72,11 +70,11 @@ enum tap_dance_codes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_EQUAL,       KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPACE,      
-    KC_DELETE,      KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,           OSL(2),                                         KC_NONUS_BSLASH,KC_J,           KC_L,           KC_U,           KC_Y,           KC_LBRACKET,    KC_RBRACKET,    
+    KC_DELETE,      KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,           KC_TRANSPARENT,                                 KC_NONUS_BSLASH,KC_J,           KC_L,           KC_U,           KC_Y,           KC_LBRACKET,    KC_RBRACKET,    
     KC_BSPACE,      KC_A,           KC_R,           KC_S,           KC_T,           KC_G,           KC_GRAVE,                                                                       KC_NONUS_HASH,  KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           KC_SCOLON,      
     KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,                                           KC_K,           KC_H,           KC_DOT,         KC_SLASH,       KC_UP,          MT(MOD_RSFT, KC_ENTER),
-    KC_LCTRL,       KC_LALT,        KC_TRANSPARENT, KC_QUOTE,       KC_LGUI,        LGUI(LSFT(KC_D)),                                                                                                TD(DANCE_0),    KC_MINUS,       LT(1,KC_COMMA), KC_LEFT,        KC_DOWN,        KC_RIGHT,       
-    MT(MOD_LSFT, KC_SPACE),MO(1),          KC_MS_BTN4,                     KC_MS_BTN5,     KC_TAB,         MT(MOD_RSFT, KC_ENTER)
+    KC_LCTRL,       KC_LALT,        KC_TRANSPARENT, KC_QUOTE,       KC_LGUI,        LGUI(LSFT(KC_D)),                                                                                                TD(DANCE_0),    KC_MINUS,       KC_COMMA,       KC_LEFT,        KC_DOWN,        KC_RIGHT,       
+    LT(1,KC_SPACE), OSL(2),         KC_MS_BTN4,                     KC_MS_BTN5,     KC_TAB,         MT(MOD_RSFT, KC_ENTER)
   ),
   [1] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_F11,                                         KC_F12,         KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_DELETE,      
@@ -157,47 +155,47 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ST_MACRO_0:
     if (record->event.pressed) {
-      SEND_STRING("git push -f\n");
+      SEND_STRING(SS_TAP(X_H));
     }
     break;
     case ST_MACRO_1:
     if (record->event.pressed) {
-      SEND_STRING("git push\n");
+      SEND_STRING(SS_TAP(X_G));
     }
     break;
     case ST_MACRO_2:
     if (record->event.pressed) {
-      SEND_STRING("git diff --name-only --diff-filter=AMR origin/master -- '***.py' | xargs black\n");
+      SEND_STRING(SS_TAP(X_B));
     }
     break;
     case ST_MACRO_3:
     if (record->event.pressed) {
-      SEND_STRING("git checkout master\ngit pull\ngit checkout -\ngit rebase master\n");
+      SEND_STRING(SS_TAP(X_G));
     }
     break;
     case ST_MACRO_4:
     if (record->event.pressed) {
-      SEND_STRING("git status\n");
+      SEND_STRING(SS_TAP(X_H));
     }
     break;
     case ST_MACRO_5:
     if (record->event.pressed) {
-      SEND_STRING("git commit -am ''" SS_TAP(X_LEFT));
+      SEND_STRING(SS_TAP(X_C));
     }
     break;
     case ST_MACRO_6:
     if (record->event.pressed) {
-      SEND_STRING("git commit --amend -a --no-edit\n");
+      SEND_STRING(SS_TAP(X_A));
     }
     break;
     case ST_MACRO_7:
     if (record->event.pressed) {
-      SEND_STRING("git checkout -b theed/");
+      SEND_STRING(SS_TAP(X_D));
     }
     break;
     case ST_MACRO_8:
     if (record->event.pressed) {
-      SEND_STRING("git rebase -i master\n");
+      SEND_STRING(SS_TAP(X_G));
     }
     break;
 
