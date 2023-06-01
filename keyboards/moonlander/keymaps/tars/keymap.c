@@ -75,11 +75,11 @@ enum tap_dance_codes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_EQUAL,       KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPACE,      
-    KC_DELETE,      KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,           TD(DANCE_0),                                    KC_NONUS_BSLASH,KC_J,           KC_L,           KC_U,           KC_Y,           KC_LBRACKET,    KC_RBRACKET,    
+    KC_TAB,      KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,           TD(DANCE_0),                                    KC_NONUS_BSLASH,KC_J,           KC_L,           KC_U,           KC_Y,           KC_LBRACKET,    KC_RBRACKET,    
     KC_BSPACE,      KC_A,           KC_R,           KC_S,           KC_T,           KC_G,           KC_GRAVE,                                                                       KC_NONUS_HASH,  KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           KC_SCOLON,      
     KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,                                           KC_K,           KC_H,           KC_DOT,         KC_SLASH,       KC_UP,          MT(MOD_RSFT, KC_ENTER),
     KC_LCTRL,       KC_LALT,        KC_TRANSPARENT, KC_QUOTE,       KC_LGUI,        LGUI(LSFT(KC_D)),                                                                                                TD(DANCE_1),    KC_MINUS,       KC_COMMA,       KC_LEFT,        KC_DOWN,        KC_RIGHT,       
-    LT(1,KC_SPACE), OSL(2),         KC_MS_BTN4,                     KC_MS_BTN5,     KC_TAB,         MT(MOD_RSFT, KC_ENTER)
+    LT(1,KC_SPACE), OSL(2),         LALT(LGUI(LSFT(LCTL(KC_D))),                     LALT(LGUI(LSFT(LCTL(KC_T))),     KC_TAB,         MT(MOD_RSFT, KC_ENTER)
   ),
   [1] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_F11,                                         KC_F12,         KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_DELETE,      
