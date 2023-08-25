@@ -10,6 +10,5 @@
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
 #define TAP_CODE_DELAY 50
-
 #define RGB_MATRIX_STARTUP_SPD 60
 
